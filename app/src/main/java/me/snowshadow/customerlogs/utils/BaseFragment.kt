@@ -1,11 +1,11 @@
-package me.snowshadow.cutomerlogs.utils
+package me.snowshadow.customerlogs.utils
 
 import android.view.MenuItem
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.ViewModelProviders
-import me.snowshadow.cutomerlogs.activities.MainViewModel
-import me.snowshadow.cutomerlogs.utils.di.Injectable
+import me.snowshadow.customerlogs.activities.MainViewModel
+import me.snowshadow.customerlogs.utils.di.Injectable
 import javax.inject.Inject
 
 abstract class BaseFragment : Fragment(), Injectable {

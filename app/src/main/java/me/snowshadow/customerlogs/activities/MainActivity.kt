@@ -1,8 +1,8 @@
-package me.snowshadow.cutomerlogs.activities
+package me.snowshadow.customerlogs.activities
 
 import android.os.Bundle
-import me.snowshadow.cutomerlogs.R
-import me.snowshadow.cutomerlogs.utils.BaseActivity
+import me.snowshadow.customerlogs.R
+import me.snowshadow.customerlogs.utils.BaseActivity
 
 class MainActivity : BaseActivity() {
 

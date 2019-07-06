@@ -1,4 +1,4 @@
-package me.snowshadow.cutomerlogs.app
+package me.snowshadow.customerlogs.app
 
 import android.app.Activity
 import android.app.Application

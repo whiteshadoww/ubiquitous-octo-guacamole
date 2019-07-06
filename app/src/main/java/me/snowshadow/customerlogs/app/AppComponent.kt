@@ -1,11 +1,11 @@
-package me.snowshadow.cutomerlogs.app
+package me.snowshadow.customerlogs.app
 
 import android.content.Context
 import dagger.BindsInstance
 import dagger.Component
 import dagger.android.support.AndroidSupportInjectionModule
-import me.snowshadow.cutomerlogs.activities.MainActivityModule
-import me.snowshadow.cutomerlogs.utils.di.ViewModelModule
+import me.snowshadow.customerlogs.activities.MainActivityModule
+import me.snowshadow.customerlogs.utils.di.ViewModelModule
 import javax.inject.Singleton
 
 

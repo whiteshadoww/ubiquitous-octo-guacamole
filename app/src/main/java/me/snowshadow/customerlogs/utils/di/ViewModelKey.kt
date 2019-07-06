@@ -1,4 +1,4 @@
-package me.snowshadow.cutomerlogs.utils.di
+package me.snowshadow.customerlogs.utils.di
 
 import androidx.lifecycle.ViewModel
 import dagger.MapKey

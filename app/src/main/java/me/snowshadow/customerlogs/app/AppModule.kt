@@ -1,10 +1,10 @@
-package me.snowshadow.cutomerlogs.app
+package me.snowshadow.customerlogs.app
 
 import android.content.Context
 import androidx.room.Room
 import dagger.Module
 import dagger.Provides
-import me.snowshadow.cutomerlogs.repo.database.DataBase
+import me.snowshadow.customerlogs.repo.database.DataBase
 import javax.inject.Singleton
 
 @Module

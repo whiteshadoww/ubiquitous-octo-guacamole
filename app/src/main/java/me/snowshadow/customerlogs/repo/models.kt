@@ -1,4 +1,4 @@
-package me.snowshadow.cutomerlogs.repo
+package me.snowshadow.customerlogs.repo
 
 import androidx.room.Entity
 import androidx.room.PrimaryKey

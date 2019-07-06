@@ -1,4 +1,4 @@
-package me.snowshadow.cutomerlogs.utils
+package me.snowshadow.customerlogs.utils
 
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment

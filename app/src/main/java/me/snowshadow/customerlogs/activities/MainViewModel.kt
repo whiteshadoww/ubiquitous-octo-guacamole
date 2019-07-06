@@ -1,4 +1,4 @@
-package me.snowshadow.cutomerlogs.activities
+package me.snowshadow.customerlogs.activities
 
 import androidx.lifecycle.ViewModel
 

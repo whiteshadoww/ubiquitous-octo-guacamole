@@ -1,4 +1,4 @@
-package me.snowshadow.cutomerlogs.app
+package me.snowshadow.customerlogs.app
 
 import android.app.Activity
 import android.app.Application
@@ -8,7 +8,7 @@ import androidx.fragment.app.FragmentActivity
 import androidx.fragment.app.FragmentManager
 import dagger.android.support.AndroidSupportInjection
 import dagger.android.support.HasSupportFragmentInjector
-import me.snowshadow.cutomerlogs.utils.di.Injectable
+import me.snowshadow.customerlogs.utils.di.Injectable
 
 object AppInjector {
 

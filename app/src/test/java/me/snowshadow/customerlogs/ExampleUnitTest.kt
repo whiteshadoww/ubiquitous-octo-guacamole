@@ -1,4 +1,4 @@
-package me.snowshadow.cutomerlogs
+package me.snowshadow.customerlogs
 
 /**
  * Example local unit test, which will execute on the development machine (host).

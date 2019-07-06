@@ -1,4 +1,4 @@
-package me.snowshadow.cutomerlogs
+package me.snowshadow.customerlogs
 
 /**
  * Instrumented test, which will execute on an Android device.

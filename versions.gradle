@@ -4,7 +4,7 @@ ext {
     build.compile_sdk = 28
     build.min_sdk = 19
     build.target_sdk = build.compile_sdk
-    build.app_id = "me.snowshadow.cutomerlogs"
+    build.app_id = "me.snowshadow.customerlogs"
 
     def plugin = [:]
 

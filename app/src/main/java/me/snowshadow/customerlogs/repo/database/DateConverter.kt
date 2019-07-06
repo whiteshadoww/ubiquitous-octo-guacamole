@@ -1,4 +1,4 @@
-package me.snowshadow.cutomerlogs.repo.database
+package me.snowshadow.customerlogs.repo.database
 
 import androidx.room.TypeConverter
 import java.text.ParseException
