@@ -1,0 +1,62 @@
+apply plugin: 'com.android.application'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
+apply plugin: 'kotlin-kapt'
+
+android {
+    compileSdkVersion conf_build.compile_sdk
+    defaultConfig {
+        applicationId conf_build.app_id
+        minSdkVersion conf_build.min_sdk
+        targetSdkVersion conf_build.target_sdk
+        versionCode 1
+        versionName "1.0"
+        vectorDrawables.useSupportLibrary true
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    //androidx//
+    implementation deps.androidx.appcompat
+    implementation deps.androidx.constraintlayout
+    implementation deps.androidx.legacy_support_v4
+    //kotlin
+    implementation deps.kotlin.stdlib
+    implementation deps.kotlin.allopen
+    //retrofit
+    implementation deps.retrofit.retrofit
+    implementation deps.retrofit.gson
+    implementation deps.retrofit.rxjava2_adapter
+    //dagger
+    implementation deps.dagger.dagger
+    implementation deps.dagger.android
+    implementation deps.dagger.android_support
+    kapt deps.dagger.compiler
+    kapt deps.dagger.support_compiler
+    //rxjava
+    implementation deps.rxkotlin.rxkotlin
+    implementation deps.rxkotlin.rxandroid
+    //room
+    implementation deps.room.room
+    implementation deps.room.room_ktx
+    implementation deps.room.room_rxjava2
+    kapt deps.room.compiler
+    //lifecycle
+    implementation deps.lifecycle.viewmodel
+//    implementation deps.lifecycle.lifecycle
+//    implementation deps.lifecycle.common
+    kapt deps.lifecycle.compiler
+    //navigation
+    implementation deps.navigation.fragment
+    implementation deps.navigation.ui
+    //others
+    implementation deps.others.picasso
+}

@@ -1,0 +1,73 @@
+ext.deps = [:]
+def deps = [:]
+
+def plugin = [:]
+plugin.kotlin = "org.jetbrains.kotlin:kotlin-gradle-plugin:$versions.plugin.kotlin"
+plugin.gradle = "com.android.tools.build:gradle:$versions.plugin.gradle"
+
+def androidx = [:]
+androidx.appcompat = "androidx.appcompat:appcompat:$versions.androidx"
+androidx.constraintlayout = "androidx.constraintlayout:constraintlayout:$versions.constraintlayout"
+androidx.legacy_support_v4 = "androidx.legacy:legacy-support-v4:$versions.androidx"
+
+def room = [:]
+room.room = "androidx.room:room-runtime:$versions.room"
+room.compiler = "androidx.room:room-compiler:$versions.room"
+room.room_ktx = "androidx.room:room-ktx:$versions.room"
+room.room_rxjava2 = "androidx.room:room-rxjava2:$versions.room"
+
+def lifecycle = [:]
+lifecycle.viewmodel = "androidx.lifecycle:lifecycle-extensions:$versions.lifecycle"
+lifecycle.common = "androidx.lifecycle:lifecycle-common-java8:$versions.lifecycle"
+lifecycle.compiler = "androidx.lifecycle:lifecycle-compiler:$versions.lifecycle"
+lifecycle.lifecycle = "androidx.lifecycle:lifecycle-runtime:$versions.lifecycle"
+
+def retrofit = [:]
+retrofit.retrofit = "com.squareup.retrofit2:retrofit:$versions.retrofit"
+retrofit.gson = "com.squareup.retrofit2:converter-gson:$versions.retrofit"
+retrofit.rxjava2_adapter = "com.squareup.retrofit2:adapter-rxjava2:$versions.retrofit"
+
+def dagger = [:]
+dagger.compiler = "com.google.dagger:dagger-compiler:$versions.dagger"
+dagger.dagger = "com.google.dagger:dagger:$versions.dagger"
+dagger.android = "com.google.dagger:dagger-android:$versions.dagger"
+dagger.android_support = "com.google.dagger:dagger-android-support:$versions.dagger"
+dagger.support_compiler = "com.google.dagger:dagger-android-processor:$versions.dagger"
+
+def navigation = [:]
+navigation.fragment = "androidx.navigation:navigation-fragment-ktx:$versions.navigation"
+navigation.ui = "androidx.navigation:navigation-ui-ktx:$versions.navigation"
+
+def kotlin = [:]
+kotlin.stdlib = "org.jetbrains.kotlin:kotlin-stdlib-jre7:$versions.jre"
+kotlin.test = "org.jetbrains.kotlin:kotlin-test-junit:$versions.plugin.kotlin"
+kotlin.allopen = "org.jetbrains.kotlin:kotlin-allopen:$versions.plugin.kotlin"
+
+def rxkotlin = [:]
+rxkotlin.rxkotlin = "io.reactivex.rxjava2:rxkotlin:$versions.rxkotlin"
+rxkotlin.rxandroid = "io.reactivex.rxjava2:rxandroid:$versions.rxandroid"
+
+def others = [:]
+others.picasso = "com.squareup.picasso:picasso:$versions.picasso"
+ 
+deps.plugin = plugin
+deps.kotlin = kotlin
+deps.androidx = androidx
+deps.room = room
+deps.lifecycle = lifecycle
+deps.retrofit = retrofit
+deps.dagger = dagger
+deps.navigation = navigation
+deps.rxkotlin = rxkotlin
+deps.others = others
+
+ext.deps = deps
+
+
+static def addRepos(RepositoryHandler handler) {
+    handler.google()
+    handler.jcenter()
+    handler.maven { url 'https://jitpack.io' }
+}
+
+ext.addRepos = this.&addRepos
