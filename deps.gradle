@@ -59,6 +59,7 @@ others.picasso = "com.squareup.picasso:picasso:$versions.picasso"
 others.imagepicker = "com.github.miguelbcr:RxPaparazzo:$versions.imagepicker"
 others.rxlocation = "com.patloew.rxlocation:rxlocation:$versions.rxlocation"
 others.qrcode_scanner = "com.budiyev.android:code-scanner:$versions.qrcode_scanner"
+others.compressor = "id.zelory:compressor:$versions.compressor"
 
 
 deps.plugin = plugin

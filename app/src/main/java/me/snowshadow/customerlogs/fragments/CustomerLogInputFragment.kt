@@ -4,6 +4,7 @@ package me.snowshadow.customerlogs.fragments
 import android.Manifest
 import android.annotation.SuppressLint
 import android.app.Activity
+import android.app.Activity.RESULT_OK
 import android.app.AlertDialog
 import android.content.Intent
 import android.location.Location
@@ -12,14 +13,20 @@ import android.view.*
 import androidx.appcompat.app.AppCompatActivity
 import com.google.android.gms.location.LocationRequest
 import com.google.android.material.snackbar.Snackbar
+import com.miguelbcr.ui.rx_paparazzo2.RxPaparazzo
+import com.miguelbcr.ui.rx_paparazzo2.entities.FileData
 import com.patloew.rxlocation.RxLocation
+import com.squareup.picasso.Picasso
 import com.tbruyelle.rxpermissions2.RxPermissions
+import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.CompositeDisposable
+import io.reactivex.schedulers.Schedulers
 import kotlinx.android.synthetic.main.fragment_customer_log_input.*
 import me.snowshadow.customerlogs.R
 import me.snowshadow.customerlogs.activities.QrScannerActivity
 import me.snowshadow.customerlogs.repo.CustomerRecord
 import me.snowshadow.customerlogs.utils.BaseFragment
+import java.io.File
 import java.util.*
 
 
@@ -53,7 +60,7 @@ class CustomerLogInputFragment : BaseFragment() {
         (activity as AppCompatActivity).setSupportActionBar(toolbar)
         (activity as AppCompatActivity).supportActionBar?.setDisplayHomeAsUpEnabled(true)
 
-        pick_image.setOnClickListener {}
+        pick_image.setOnClickListener { takePhoto() }
 
         pick_location.setOnClickListener { pickLocation() }
 
@@ -78,6 +85,57 @@ class CustomerLogInputFragment : BaseFragment() {
         }
 
 
+    }
+
+    @SuppressLint("CheckResult")
+    private fun takePhoto() {
+
+        RxPaparazzo.single(this)
+            .usingCamera()
+            .subscribeOn(Schedulers.io())
+            .observeOn(AndroidSchedulers.mainThread())
+            .subscribe { response ->
+                // See response.resultCode() doc
+                if (response.resultCode() != RESULT_OK) {
+                    response.targetUI().showUserCanceled()
+                    return@subscribe
+                }
+                response.targetUI().loadImage(response.data())
+            }
+    }
+
+    @SuppressLint("CheckResult")
+    private fun loadImage(data: FileData?) {
+
+        if (data == null) {
+            showUserCanceled()
+        } else {
+
+            mainViewModel.compressImage(data.file.path)
+                .subscribe({
+                    photoData = it.path
+                    Picasso.get()
+                        .load(File(photoData))
+                        .into(image)
+
+                }, {
+                    it.printStackTrace()
+                    photoData = null
+                    image.setImageDrawable(null)
+                })
+
+
+        }
+
+
+    }
+
+    private fun showUserCanceled() {
+        Snackbar.make(
+            view!!,
+            "Taking Photo Canceled/Failed",
+            Snackbar.LENGTH_LONG
+        ).show()
     }
 
     @SuppressLint("MissingPermission")
@@ -139,16 +197,14 @@ class CustomerLogInputFragment : BaseFragment() {
             id_number.error = "ID number is required"
             error = true
         }
-
-        if (qrData.isNullOrEmpty()) {
+        if (photoData == null) {
 
             AlertDialog.Builder(this.context)
-                .setTitle("Error QR Code Missing")
-                .setMessage("Scan QR  to proceed")
+                .setTitle("Error Photo Missing")
+                .setMessage("Take a photo first")
                 .show()
             return
         }
-
         if (locData == null) {
 
             AlertDialog.Builder(this.context)
@@ -157,11 +213,11 @@ class CustomerLogInputFragment : BaseFragment() {
                 .show()
             return
         }
-        if (photoData == null) {
+        if (qrData.isNullOrEmpty()) {
 
             AlertDialog.Builder(this.context)
-                .setTitle("Error Photo Missing")
-                .setMessage("Take a photo first")
+                .setTitle("Error QR Code Missing")
+                .setMessage("Scan QR  to proceed")
                 .show()
             return
         }
@@ -173,7 +229,7 @@ class CustomerLogInputFragment : BaseFragment() {
                 0,
                 first_name.text.toString(),
                 last_name.text.toString(),
-                id_number.text.toString().toInt(),
+                id_number.text.toString(),
                 qrData!!,
                 locData!!.latitude,
                 locData!!.longitude,

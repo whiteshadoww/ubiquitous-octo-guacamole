@@ -11,7 +11,7 @@ data class CustomerRecord(
     val id: Int = 0,
     var firstName: String,
     var lastName: String,
-    var idNo: Int,
+    var idNo: String,
     var qrData: String,
     var lat: Double,
     var lng: Double,

@@ -71,4 +71,5 @@ dependencies {
     implementation deps.others.imagepicker
     implementation deps.others.rxlocation
     implementation deps.others.qrcode_scanner
+    implementation deps.others.compressor
 }
