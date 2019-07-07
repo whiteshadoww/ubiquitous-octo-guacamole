@@ -16,15 +16,6 @@ import java.io.File
 class CustomerLogsAdapter :
     PagedListAdapter<CustomerRecord, CustomerLogsAdapter.CustomerRecordHolder>(DIFF_CALLBACK) {
 
-//    private var items = ArrayList<CustomerRecord>()
-//
-//
-//    fun setItems(new: ArrayList<CustomerRecord>) {
-//        val updates = DiffUtil.calculateDiff(CustomerLogDiff(items, new))
-//        items = new
-//        updates.dispatchUpdatesTo(this)
-//    }
-
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CustomerRecordHolder {
         val v = LayoutInflater.from(parent.context).inflate(R.layout.card_records, parent, false)
         return CustomerRecordHolder(v)
@@ -34,39 +25,17 @@ class CustomerLogsAdapter :
         holder.bind()
     }
 
-//    override fun getItemCount(): Int = items.size
-
     inner class CustomerRecordHolder(private val v: View) : RecyclerView.ViewHolder(v) {
 
         fun bind() {
-            val item = getItem(adapterPosition)
+            val item = getItem(adapterPosition) ?: return
 
-            if (item == null) return
             Picasso.get().load(File("")).error(R.drawable.ic_launcher_foreground)
                 .into(v.card_image__records)
             v.card_name.text = "${item.firstName} ${item.lastName}"
             v.card_id_no.text = item.idNo.toString()
             v.card_date.text = item.createdOn.formatTime()
         }
-
-    }
-
-
-    class CustomerLogDiff(
-        private val oldList: ArrayList<CustomerRecord>,
-        private val newList: ArrayList<CustomerRecord>
-    ) : DiffUtil.Callback() {
-
-        override fun areItemsTheSame(oldItemPosition: Int, newItemPosition: Int): Boolean =
-            oldList[oldItemPosition].id == newList[newItemPosition].id
-
-        override fun getOldListSize(): Int = oldList.size
-
-        override fun getNewListSize(): Int = newList.size
-
-        override fun areContentsTheSame(oldItemPosition: Int, newItemPosition: Int): Boolean =
-            oldList[oldItemPosition] == newList[newItemPosition]
-
 
     }
 
