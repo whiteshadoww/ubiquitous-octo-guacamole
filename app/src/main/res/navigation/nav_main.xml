@@ -7,12 +7,21 @@
 
     <fragment android:id="@+id/customerLogInputFragment"
               android:name="me.snowshadow.customerlogs.fragments.CustomerLogInputFragment"
-              android:label="CustomerLogInputFragment"/>
+              android:label="CustomerLogInputFragment"
+              tools:layout="@layout/fragment_customer_log_input"/>
+
     <fragment android:id="@+id/customersLogListFragment"
               android:name="me.snowshadow.customerlogs.fragments.CustomersLogListFragment"
               android:label="fragment_customer_logs_list"
               tools:layout="@layout/fragment_customer_logs_list">
         <action android:id="@+id/action_customersLogListFragment_to_customerLogInputFragment"
                 app:destination="@id/customerLogInputFragment"/>
+        <action android:id="@+id/action_customersLogListFragment_to_customerLogDetailsFragment"
+                app:destination="@id/customerLogDetailsFragment"/>
     </fragment>
+
+    <fragment android:id="@+id/customerLogDetailsFragment"
+              android:name="me.snowshadow.customerlogs.fragments.CustomerLogDetailsFragment"
+              android:label="fragment_customer_log_details"
+              tools:layout="@layout/fragment_customer_log_input"/>
 </navigation>

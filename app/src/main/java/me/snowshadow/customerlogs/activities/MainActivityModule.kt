@@ -2,6 +2,7 @@ package me.snowshadow.customerlogs.activities
 
 import dagger.Module
 import dagger.android.ContributesAndroidInjector
+import me.snowshadow.customerlogs.fragments.CustomerLogDetailsFragment
 import me.snowshadow.customerlogs.fragments.CustomerLogInputFragment
 import me.snowshadow.customerlogs.fragments.CustomersLogListFragment
 
@@ -21,4 +22,8 @@ interface MainFragmentsModule {
 
     @ContributesAndroidInjector
     fun cutomerLogList(): CustomersLogListFragment
+
+    @ContributesAndroidInjector
+    fun logDetails(): CustomerLogDetailsFragment
+
 }

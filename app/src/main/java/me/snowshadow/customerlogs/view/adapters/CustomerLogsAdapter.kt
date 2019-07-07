@@ -1,8 +1,10 @@
 package me.snowshadow.customerlogs.view.adapters
 
+import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.navigation.Navigation
 import androidx.paging.PagedListAdapter
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
@@ -33,8 +35,16 @@ class CustomerLogsAdapter :
             Picasso.get().load(File(item.photo)).error(R.drawable.ic_launcher_foreground)
                 .into(v.card_image__records)
             v.card_name.text = "${item.firstName} ${item.lastName}"
-            v.card_id_no.text = item.idNo.toString()
+            v.card_id_no.text = item.idNo
             v.card_date.text = item.createdOn.formatTime()
+            v.setOnClickListener(
+                Navigation
+                    .createNavigateOnClickListener(R.id.action_customersLogListFragment_to_customerLogDetailsFragment,
+                        Bundle().apply {
+                            putParcelable("record", item)
+                        }
+                    )
+            )
         }
 
     }

@@ -156,7 +156,8 @@ class CustomerLogInputFragment : BaseFragment() {
                 locData = it
                 if (it != null) {
 
-                    location.text = "lat:${it.latitude}\nlng:${it.longitude}"
+                    location.text =
+                        "Location : \n\tlat -: ${it.latitude}\n\tlong -:${it.longitude}"
 
                     return@subscribe
                 } else {
@@ -247,7 +248,7 @@ class CustomerLogInputFragment : BaseFragment() {
 
             if (resultCode == Activity.RESULT_OK && data != null) {
                 qrData = data.getStringExtra("data")
-                qr_data.text = qrData
+                qr_data.text = "QR Data :\n\t$qrData"
             } else {
                 qrData = null
                 qr_data.text = ""

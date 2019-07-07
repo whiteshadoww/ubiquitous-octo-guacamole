@@ -48,174 +48,193 @@
             </androidx.appcompat.widget.Toolbar>
 
         </com.google.android.material.appbar.AppBarLayout>
-        <androidx.constraintlayout.widget.ConstraintLayout
+        <androidx.core.widget.NestedScrollView
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:paddingLeft="15dp"
-            android:paddingRight="15dp"
+            android:layout_height="wrap_content"
             app:layout_behavior="@string/appbar_scrolling_view_behavior">
 
-            <!--personal details card-->
-            <com.google.android.material.card.MaterialCardView
-                android:id="@+id/card_1"
+            <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                app:cardElevation="8dp"
-                app:layout_constraintLeft_toLeftOf="parent"
-                app:layout_constraintRight_toRightOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_chainStyle="packed">
+                android:layout_height="match_parent"
+                android:paddingLeft="15dp"
+                android:paddingRight="15dp">
 
-                <LinearLayout
+                <!--personal details card-->
+                <com.google.android.material.card.MaterialCardView
+                    android:id="@+id/card_1"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="vertical"
-                    android:padding="15dp">
+                    android:layout_marginTop="10dp"
+                    app:cardElevation="8dp"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_chainStyle="packed">
 
-                    <androidx.appcompat.widget.AppCompatTextView
+                    <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="Personal Details"
-                        android:textSize="18sp"/>
+                        android:orientation="vertical"
+                        android:padding="15dp">
 
-                    <com.google.android.material.textfield.TextInputLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content">
-
-                        <com.google.android.material.textfield.TextInputEditText
-                            android:id="@+id/first_name"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"/>
-
-                    </com.google.android.material.textfield.TextInputLayout>
-
-                    <com.google.android.material.textfield.TextInputLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content">
-
-                        <com.google.android.material.textfield.TextInputEditText
-                            android:id="@+id/last_name"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"/>
-
-                    </com.google.android.material.textfield.TextInputLayout>
-
-                    <com.google.android.material.textfield.TextInputLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content">
-
-                        <com.google.android.material.textfield.TextInputEditText
-                            android:id="@+id/id_number"
+                        <androidx.appcompat.widget.AppCompatTextView
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:inputType="number"/>
+                            android:text="Personal Details"
+                            android:textSize="21sp"
+                            android:textStyle="bold"/>
 
-                    </com.google.android.material.textfield.TextInputLayout>
+                        <com.google.android.material.textfield.TextInputLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="8dp"
+                            android:hint="First Name">
 
+                            <com.google.android.material.textfield.TextInputEditText
+                                android:id="@+id/first_name"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"/>
 
-                </LinearLayout>
+                        </com.google.android.material.textfield.TextInputLayout>
 
+                        <com.google.android.material.textfield.TextInputLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="8dp"
+                            android:hint="Last Name">
 
-            </com.google.android.material.card.MaterialCardView>
+                            <com.google.android.material.textfield.TextInputEditText
+                                android:id="@+id/last_name"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"/>
 
-            <!--image card-->
-            <com.google.android.material.card.MaterialCardView
-                android:id="@+id/card_2"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                app:layout_constraintBottom_toTopOf="@id/card_3"
-                app:layout_constraintLeft_toLeftOf="parent"
-                app:layout_constraintRight_toRightOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/card_1">
+                        </com.google.android.material.textfield.TextInputLayout>
 
+                        <com.google.android.material.textfield.TextInputLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="8dp"
+                            android:hint="ID Number">
 
-                <androidx.constraintlayout.widget.ConstraintLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
+                            <com.google.android.material.textfield.TextInputEditText
+                                android:id="@+id/id_number"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:inputType="number"/>
 
-                    <androidx.appcompat.widget.AppCompatImageView
-                        android:id="@+id/image"
-                        android:layout_width="match_parent"
-                        android:layout_height="180dp"
-                        android:layout_marginTop="8dp"
-                        android:scaleType="centerCrop"
-                        app:layout_constraintTop_toTopOf="parent"/>
-
-                    <com.google.android.material.button.MaterialButton
-                        android:id="@+id/pick_image"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="20dp"
-                        android:text="TAKE PICTURE"
-                        app:layout_constraintRight_toRightOf="parent"
-                        app:layout_constraintTop_toTopOf="parent"/>
-
-                </androidx.constraintlayout.widget.ConstraintLayout>
-
-            </com.google.android.material.card.MaterialCardView>
-
-            <!--location data card-->
-            <com.google.android.material.card.MaterialCardView
-                android:id="@+id/card_3"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                app:layout_constraintBottom_toTopOf="@id/card_4"
-                app:layout_constraintLeft_toLeftOf="parent"
-                app:layout_constraintRight_toRightOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/card_2">
-
-            </com.google.android.material.card.MaterialCardView>
-
-            <!--qr data & location card-->
-            <com.google.android.material.card.MaterialCardView
-                android:id="@+id/card_4"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                app:layout_constraintLeft_toLeftOf="parent"
-                app:layout_constraintRight_toRightOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/card_3">
+                        </com.google.android.material.textfield.TextInputLayout>
 
 
-                <LinearLayout
+                    </LinearLayout>
+
+
+                </com.google.android.material.card.MaterialCardView>
+
+                <!--image card-->
+                <com.google.android.material.card.MaterialCardView
+                    android:id="@+id/card_2"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="vertical"
-                    android:padding="15dp">
+                    android:layout_marginTop="10dp"
+                    app:layout_constraintBottom_toTopOf="@id/card_3"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/card_1">
 
 
-                    <androidx.appcompat.widget.AppCompatTextView
-                        android:id="@+id/qr_data"
-                        android:layout_width="match_parent" android:layout_height="wrap_content"
-                        android:textSize="16sp"/>
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <androidx.appcompat.widget.AppCompatImageView
+                            android:id="@+id/image"
+                            android:layout_width="match_parent"
+                            android:layout_height="180dp"
+                            android:layout_marginTop="8dp"
+                            android:scaleType="centerCrop"
+                            app:layout_constraintTop_toTopOf="parent"/>
+
+                        <com.google.android.material.button.MaterialButton
+                            android:id="@+id/pick_image"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="20dp"
+                            android:text="TAKE PICTURE"
+                            app:layout_constraintRight_toRightOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"/>
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                </com.google.android.material.card.MaterialCardView>
+
+                <!--location data card-->
+                <com.google.android.material.card.MaterialCardView
+                    android:id="@+id/card_3"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    app:layout_constraintBottom_toTopOf="@id/card_4"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/card_2">
+
+                </com.google.android.material.card.MaterialCardView>
+
+                <!--qr data & location card-->
+                <com.google.android.material.card.MaterialCardView
+                    android:id="@+id/card_4"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/card_3">
 
 
-                    <androidx.appcompat.widget.AppCompatTextView
-                        android:id="@+id/location"
-                        android:layout_width="match_parent" android:layout_height="wrap_content"
-                        android:layout_marginTop="10dp"
-                        android:textSize="16sp"/>
-
-                    <com.google.android.material.button.MaterialButton
-                        android:id="@+id/pick_location"
-                        android:layout_width="wrap_content"
+                    <LinearLayout
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_gravity="end"
-                        android:layout_marginTop="10dp"
-                        android:text="Pick Location"/>
+                        android:orientation="vertical"
+                        android:padding="15dp">
 
 
-                </LinearLayout>
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:id="@+id/qr_data"
+                            android:layout_width="match_parent" android:layout_height="wrap_content"
+                            android:textSize="16sp"/>
 
 
-            </com.google.android.material.card.MaterialCardView>
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:id="@+id/location"
+                            android:layout_width="match_parent" android:layout_height="wrap_content"
+                            android:layout_marginTop="10dp"
+                            android:textSize="16sp"/>
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:id="@+id/date_created"
+                            android:layout_width="match_parent" android:layout_height="wrap_content"
+                            android:layout_marginTop="10dp"
+                            android:textSize="16sp"/>
 
 
-        </androidx.constraintlayout.widget.ConstraintLayout>
+                        <com.google.android.material.button.MaterialButton
+                            android:id="@+id/pick_location"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="end"
+                            android:layout_marginTop="10dp"
+                            android:text="Pick Location"/>
 
+
+                    </LinearLayout>
+
+
+                </com.google.android.material.card.MaterialCardView>
+
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </androidx.core.widget.NestedScrollView>
 
         <com.google.android.material.floatingactionbutton.FloatingActionButton
             android:id="@+id/scan_qr"
