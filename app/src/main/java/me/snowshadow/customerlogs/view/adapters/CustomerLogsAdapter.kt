@@ -32,7 +32,7 @@ class CustomerLogsAdapter :
         fun bind() {
             val item = getItem(adapterPosition) ?: return
 
-            Picasso.get().load(File(item.photo)).error(R.drawable.ic_launcher_foreground)
+            Picasso.get().load(File(item.photo)).error(R.drawable.icon)
                 .into(v.card_image__records)
             v.card_name.text = "${item.firstName} ${item.lastName}"
             v.card_id_no.text = item.idNo

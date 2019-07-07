@@ -28,9 +28,8 @@
                 android:resource="@xml/file_provider_paths"/>
         </provider>
 
-        <activity
-            android:name=".activities.MainActivity">
-
+        <activity android:name=".activities.MainActivity"/>
+        <activity android:name=".activities.SplashActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
 
