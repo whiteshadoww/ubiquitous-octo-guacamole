@@ -20,6 +20,10 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
 }
 
 dependencies {
@@ -27,7 +31,10 @@ dependencies {
     //androidx//
     implementation deps.androidx.appcompat
     implementation deps.androidx.constraintlayout
-    implementation deps.androidx.legacy_support_v4
+//    implementation deps.androidx.legacy_support_v4
+    //paging
+    implementation deps.paging.paging_runtime_ktx
+    implementation deps.paging.paging_rxjava2_ktx
     //kotlin
     implementation deps.kotlin.stdlib
     implementation deps.kotlin.allopen
@@ -57,6 +64,11 @@ dependencies {
     //navigation
     implementation deps.navigation.fragment
     implementation deps.navigation.ui
+    //playservices
+    implementation deps.playservice.location
     //others
     implementation deps.others.picasso
+    implementation deps.others.imagepicker
+    implementation deps.others.rxlocation
+    implementation deps.others.qrcode_scanner
 }

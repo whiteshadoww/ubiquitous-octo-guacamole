@@ -2,6 +2,7 @@ package me.snowshadow.customerlogs.app
 
 import android.app.Activity
 import android.app.Application
+import com.miguelbcr.ui.rx_paparazzo2.RxPaparazzo
 import dagger.android.AndroidInjector
 import dagger.android.DispatchingAndroidInjector
 import dagger.android.HasActivityInjector
@@ -16,7 +17,7 @@ class App : Application(), HasActivityInjector {
 
     override fun onCreate() {
         super.onCreate()
-
+        RxPaparazzo.register(this)
         AppInjector.inject(this)
 
     }

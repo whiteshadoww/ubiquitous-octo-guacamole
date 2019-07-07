@@ -15,8 +15,8 @@ object AppInjector {
     fun inject(app: App) {
 
         val da = DaggerAppComponent.builder()
-                .applicationContext(app)
-                .build()
+            .applicationContext(app)
+            .build()
 
         da.inject(app)
 
@@ -46,16 +46,16 @@ object AppInjector {
                 }
 
                 (activity as? FragmentActivity)?.supportFragmentManager?.registerFragmentLifecycleCallbacks(
-                        object : FragmentManager.FragmentLifecycleCallbacks() {
-                            override fun onFragmentCreated(
-                                    fm: FragmentManager, f: Fragment,
-                                    savedInstanceState: Bundle?
-                            ) {
-                                if (f is Injectable) {
-                                    AndroidSupportInjection.inject(f)
-                                }
+                    object : FragmentManager.FragmentLifecycleCallbacks() {
+                        override fun onFragmentCreated(
+                            fm: FragmentManager, f: Fragment,
+                            savedInstanceState: Bundle?
+                        ) {
+                            if (f is Injectable) {
+                                AndroidSupportInjection.inject(f)
                             }
-                        }, true
+                        }
+                    }, true
                 )
             }
 

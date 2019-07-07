@@ -13,16 +13,7 @@ abstract class BaseActivity : AppCompatActivity(), HasSupportFragmentInjector {
     lateinit var fragInjector: DispatchingAndroidInjector<Fragment>
 
     override fun supportFragmentInjector(): AndroidInjector<Fragment> =
-            fragInjector
-
-    override fun onBackPressed() {
-
-//        if (!BackFragmentHelper.fireOnBackPressedEvent(this)) {
-//            // lets do the default back action if fragments don't consume it
-//            super.onBackPressed()
-//        }
-
-    }
+        fragInjector
 
 
 }

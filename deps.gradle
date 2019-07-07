@@ -8,13 +8,17 @@ plugin.gradle = "com.android.tools.build:gradle:$versions.plugin.gradle"
 def androidx = [:]
 androidx.appcompat = "androidx.appcompat:appcompat:$versions.androidx"
 androidx.constraintlayout = "androidx.constraintlayout:constraintlayout:$versions.constraintlayout"
-androidx.legacy_support_v4 = "androidx.legacy:legacy-support-v4:$versions.androidx"
+androidx.material = "com.google.android.material:material:$versions.material"
 
 def room = [:]
 room.room = "androidx.room:room-runtime:$versions.room"
 room.compiler = "androidx.room:room-compiler:$versions.room"
 room.room_ktx = "androidx.room:room-ktx:$versions.room"
 room.room_rxjava2 = "androidx.room:room-rxjava2:$versions.room"
+
+def paging = [:]
+paging.paging_runtime_ktx = "androidx.paging:paging-runtime-ktx:$versions.paging"
+paging.paging_rxjava2_ktx = "androidx.paging:paging-rxjava2-ktx:$versions.paging"
 
 def lifecycle = [:]
 lifecycle.viewmodel = "androidx.lifecycle:lifecycle-extensions:$versions.lifecycle"
@@ -47,13 +51,22 @@ def rxkotlin = [:]
 rxkotlin.rxkotlin = "io.reactivex.rxjava2:rxkotlin:$versions.rxkotlin"
 rxkotlin.rxandroid = "io.reactivex.rxjava2:rxandroid:$versions.rxandroid"
 
+def playservice = [:]
+playservice.location = "com.google.android.gms:play-services-location:$versions.play_service"
+
 def others = [:]
 others.picasso = "com.squareup.picasso:picasso:$versions.picasso"
- 
+others.imagepicker = "com.github.miguelbcr:RxPaparazzo:$versions.imagepicker"
+others.rxlocation = "com.patloew.rxlocation:rxlocation:$versions.rxlocation"
+others.qrcode_scanner = "com.budiyev.android:code-scanner:$versions.qrcode_scanner"
+
+
 deps.plugin = plugin
 deps.kotlin = kotlin
 deps.androidx = androidx
+deps.playservice = playservice
 deps.room = room
+deps.paging = paging
 deps.lifecycle = lifecycle
 deps.retrofit = retrofit
 deps.dagger = dagger
