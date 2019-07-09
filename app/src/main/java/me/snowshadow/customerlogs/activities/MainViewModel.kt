@@ -32,10 +32,6 @@ class MainViewModel @Inject constructor(private val db: DataBase, private val ct
             .setQuality(75)
             .setDestinationDirectoryPath(Environment.getExternalStorageDirectory().path + "/customerlogs")
             .compressToFileAsFlowable(File(imgs), Date().toGMTString().md5() + ".jpg")
-            .map {
-                File(imgs).delete()
-                it
-            }
             .subscribeOn(Schedulers.io())
             .observeOn(AndroidSchedulers.mainThread())
     }
